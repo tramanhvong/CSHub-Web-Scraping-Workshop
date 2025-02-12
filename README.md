@@ -4,6 +4,14 @@ Hey all! This is the repository for CSHubs web scraping workshop! Here you can f
 
 If you have any questions post-workshop feel free to DM me on discord, my username is bushwack21 :).
 
+Websites Used:
+
+https://www.scrapethissite.com/pages/simple/
+
+https://www.scrapethissite.com/pages/forms/
+
+
+
 # Step 1: Install Prerequesites and Clone this Repo:
 
 To get started, we will need a few things. First, Make sure to download Google Chrome and the accompanying ChromeDriver. Additionally we need the Selenium Library.
