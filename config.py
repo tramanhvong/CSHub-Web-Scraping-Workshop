@@ -67,3 +67,5 @@ options.add_experimental_option("useAutomationExtension", False)
 options.add_argument(f'user-agent={useragent}')
 # Create the service with logging
 service = Service(executable_path=driverpath, log_path=log_path)
+
+web1 = "https://www.scrapethissite.com/pages/simple/"

@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from config import *
+from typing import *
 
 
 
@@ -20,11 +21,23 @@ stealth(driver,
 
 
 
-driver.get("https://www.google.ca/")
-searchbar = driver.find_element(By.NAME,"q")
-searchbar.click()
-searchbar.send_keys("Skibidi Toilet")
 
+
+def example1():
+    driver.get("")
+    countries = driver.find_elements(,"")
+    if():
+        print("Succesfully found countries!")
+
+    else:
+        print("Elements not found.")
+
+    return countries
+    
+
+scrapedCountries: List["HTML_TAGS"] = example1()
+
+print(scrapedCountries)
 
 
 input("Press Enter to exit...")
