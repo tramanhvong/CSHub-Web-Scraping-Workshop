@@ -10,6 +10,8 @@ https://www.scrapethissite.com/pages/simple/
 
 https://www.scrapethissite.com/pages/forms/
 
+https://www.nba.com/players
+
 
 
 # Step 1: Install Prerequesites and Clone this Repo:
@@ -22,10 +24,14 @@ Google Chrome -> https://www.google.com/intl/en_ca/chrome/
 
 ChromeDriver -> https://developer.chrome.com/docs/chromedriver/downloads
 
-Next, we need Selenium. To install selenium, simply open your terminal and enter:
+Next, we need Selenium & BeatifulSoup. To install selenium, simply open your terminal and enter:
 
 ```
 pip install selenium
+```
+
+```
+pip install beautifulsoup4
 ```
 
 Once you have installed everything, we can now clone the repo to obtain the starter code. If you do not have Github Desktop or Git Make sure to download it.
