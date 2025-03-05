@@ -4,6 +4,16 @@ Hey all! This is the repository for CSHubs web scraping workshop! Here you can f
 
 If you have any questions post-workshop feel free to DM me on discord, my username is bushwack21 :).
 
+Websites Used:
+
+https://www.scrapethissite.com/pages/simple/
+
+https://www.scrapethissite.com/pages/forms/
+
+https://www.nba.com/players
+
+
+
 # Step 1: Install Prerequesites and Clone this Repo:
 
 For this workshop we are using python so if you want to follow along make sure you install it.
@@ -18,7 +28,7 @@ Google Chrome -> https://www.google.com/intl/en_ca/chrome/
 
 ChromeDriver -> https://developer.chrome.com/docs/chromedriver/downloads
 
-Next, we need Selenium and Beatifulsoup. To install selenium, simply open your terminal and enter:
+Next, we need Selenium. To install selenium, simply open your terminal and enter:
 
 ```
 pip install selenium
