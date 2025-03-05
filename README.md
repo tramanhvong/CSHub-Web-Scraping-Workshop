@@ -28,7 +28,7 @@ Google Chrome -> https://www.google.com/intl/en_ca/chrome/
 
 ChromeDriver -> https://developer.chrome.com/docs/chromedriver/downloads
 
-Next, we need Selenium. To install selenium, simply open your terminal and enter:
+Next, we need Selenium and beatifulsoup. To install selenium, simply open your terminal and enter:
 
 ```
 pip install selenium
