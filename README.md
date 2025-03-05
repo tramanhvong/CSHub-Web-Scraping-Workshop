@@ -1,4 +1,4 @@
-# CSHub-Web-Scraping-Workshop
+# CSHub Web Scraping Workshop
 
 Hey all! This is the repository for CSHubs web scraping workshop! Here you can find the starter code and the Steps to get started!
 
