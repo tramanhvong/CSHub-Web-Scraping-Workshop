@@ -2,9 +2,12 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from config import *
 from typing import *
-
+from bs4 import BeautifulSoup
+import csv
 
 
 driver = webdriver.Chrome(service=service, options=options)
@@ -19,25 +22,195 @@ stealth(driver,
         )
 
 
+def example1bs4():
+
+    soup = BeautifulSoup(requests.get("").content, "html.parser")
+    countries = soup.findAll("", class_="")
+    if(countries):
+        print("Succesfully found countries")
+
+
+  
+
+
+    sorted_countries_by_area = sorted(countries, key=lambda country: float(country.find(class_="").get_text(strip = True)))
+
+
+    for country in sorted_countries_by_area:
+        name = ...
+        area = ...
+        print(f"{name}: {area}")
 
 
 
 
-def example1():
+def example1selenium():
     driver.get("")
-    countries = driver.find_elements(,"")
-    if():
+    countries = driver.find_elements(...,"")
+    if(...):
         print("Succesfully found countries!")
 
     else:
         print("Elements not found.")
 
-    return countries
+
+    sorted_countries_by_area = sorted(countries, key=lambda country: float(country.find_element(By.CLASS_NAME, ...).text.replace(',', '')))
+
+    for country in sorted_countries_by_area:
+        name = ...
+        area = ...
+        print(f"{name}: {area}")
+
+
+def example2selenium():
+
+    driver.get("")
+    myTable = driver.find_element(..., "")
+
+    # Extract rows
+    rows = myTable.find_elements(..., "")
+    headers = myTable.find_elements(..., "")
+
+    # Extract header row
+    header_row = []
+
+
+    if headers:
+        for header in headers:
+            header_row.append(header.text.strip())
+
+    # Extract table data
+    table_data = []
+
+
+    for row in rows:
+        cells = row.find_elements(..., "")  # Use "th" for headers
+        row_data = []
+        for cell in cells:
+            row_data.append(...)
+        
+        if row_data:  # Remove empty rows
+            table_data.append(row_data)
+
+    # Print headers
+    print(header_row)
+
+    # Print table data
+    for row in table_data:
+        for cell in row:
+            print(row)
+
+    # Save data to CSV
+    with open("scraped_table.csv", "w", newline="", encoding="utf-8") as file:
+        
+        writer = csv.writer(file)
+
+        # Write headers if present
+        if header_row:
+            writer.writerow(header_row)
+
+        # Write data
+        for row in table_data:
+            writer.writerow(row)
+
+    print("CSV file saved!")
+
+
+def example2bs4():
+    url = ""
+    response = requests.get(url)
+    # Parse the HTML content with BeautifulSoup
+    soup = BeautifulSoup(..., "html.parser")
     
+    # Find the table
+    my_table = soup.find("")
 
-scrapedCountries: List["HTML_TAGS"] = example1()
+    # Extract headers (if any)
+    headers = my_table.find_all("")
 
-print(scrapedCountries)
+    header_row = []
+
+    if(headers):
+        for header in headers:
+            header_row.append(...)
+
+    # Extract table rows
+    rows = my_table.find_all("")
+    
+    # Process the table data
+    table_data = []
+    for row in rows:
+        cells = row.find_all("")
+        cells_text = []
+
+        for cell in cells:
+            cells_text.append(...)
+
+
+        table_data.append(cells_text)
+
+    row_data = []
+    
+    for cell in cells:
+        row_data.append(...)
+    
+    if row_data:  # Ensure the row is not empty
+        table_data.append(row_data)
+
+    for row in table_data:
+        if row == []:
+            table_data.remove(row)
+
+    # Print header and data
+    print(header_row)
+    for i in table_data:
+        print(i)
+    
+    # Save to CSV
+    with open("", "", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        
+        # Write headers if present
+        if header_row:
+            writer.writerow(header_row)
+
+        # Write data
+        writer.writerows(table_data)
+
+    print("CSV file saved!")
+
+
+
+def playerLookup():
+    playertofind = input("Enter the name of a NBA player currently playing:")
+    driver.get("https://www.nba.com/players")
+
+
+
+    #To avoid some unnecesary element from popping up
+    driver.refresh()
+    driver.refresh()
+    driver.refresh()
+    driver.refresh()    
+
+   '''
+   Hints to get you started:
+
+   Not only can selenium dynamically scrape/crawl websites but it can also interact with the browser.
+
+   Use .click() on an element to click it.
+   for example, if you lets say scrape a button called searchButton: searchButton.click()
+
+   You can also send keystrokes into a form/input field, so for example if we found an element named textBox: textBox.sendkeys("Your String") would send the string into the textbox.
+   
+   
+   
+   '''
+
+
+
+
+playerLookup()
 
 
 input("Press Enter to exit...")

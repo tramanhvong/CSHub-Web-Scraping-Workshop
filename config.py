@@ -17,12 +17,12 @@ import random
 
 
 # Set Path to the chromedriver executable
-driverpath = r"chromedriverwin.exe"
+driverpath = r"chromedriver.exe"
 
 
 
 # Set Path to the log file
-log_path = "chromedriverwin.exe"
+log_path = "chromedriver.exe"
 # Set Chrome options if needed
 options = Options()
 
@@ -55,7 +55,7 @@ user_agents = [
 useragent = random.choice(user_agents)
 options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
-#options.add_argument('--headless')
+options.add_argument('--headless')
 options.add_argument('--disable-gpu')  # May improve stability in headless mode
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--disable-web-security')
@@ -65,7 +65,16 @@ options.add_argument("--disable-blink-features=AutomationControlled")
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option("useAutomationExtension", False)
 options.add_argument(f'user-agent={useragent}')
+options.add_argument("--disable-gpu")
+options.add_argument("--disable-software-rasterizer")
+options.add_argument("--disable-webgl")
+
+# Suppress logs from Chrome
+options.add_argument("--log-level=3")  # 0 = INFO, 1 = WARNING, 2 = ERROR, 3 = FATAL
+
+# Suppress DevTools & other logs
 # Create the service with logging
 service = Service(executable_path=driverpath, log_path=log_path)
 
 web1 = "https://www.scrapethissite.com/pages/simple/"
+

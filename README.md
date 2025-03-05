@@ -6,6 +6,10 @@ If you have any questions post-workshop feel free to DM me on discord, my userna
 
 # Step 1: Install Prerequesites and Clone this Repo:
 
+For this workshop we are using python so if you want to follow along make sure you install it.
+
+
+
 To get started, we will need a few things. First, Make sure to download Google Chrome and the accompanying ChromeDriver. Additionally we need the Selenium Library.
 
 Install Google Chrome & Chrome Driver Here:
@@ -14,10 +18,14 @@ Google Chrome -> https://www.google.com/intl/en_ca/chrome/
 
 ChromeDriver -> https://developer.chrome.com/docs/chromedriver/downloads
 
-Next, we need Selenium. To install selenium, simply open your terminal and enter:
+Next, we need Selenium and Beatifulsoup. To install selenium, simply open your terminal and enter:
 
 ```
 pip install selenium
+```
+
+```
+pip install beautifulsoup4
 ```
 
 Once you have installed everything, we can now clone the repo to obtain the starter code. If you do not have Github Desktop or Git Make sure to download it.
