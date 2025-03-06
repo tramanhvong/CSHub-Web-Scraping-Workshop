@@ -1,7 +1,7 @@
 
 #Various Imports for selenium and webdriver functionalities
 
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.service import Service  as ChromeService
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium import webdriver
@@ -9,6 +9,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium_stealth import stealth
 import time
 import random
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 
@@ -16,28 +17,13 @@ import random
 
 
 
-# Set Path to the chromedriver executable
-driverpath = r"chromedriver.exe"
 
-
-
-# Set Path to the log file
-log_path = "chromedriver.exe"
 # Set Chrome options if needed
 options = Options()
 
 
 
-import os
-import stat
 
-# Ensure the file exists
-if os.path.exists(driverpath):
-    # Add executable permissions
-    st = os.stat(driverpath)
-    os.chmod(driverpath, st.st_mode | stat.S_IEXEC)
-else:
-    print(f"Error: {driverpath} does not exist.")
 
 
 
@@ -53,8 +39,6 @@ user_agents = [
 ]
 
 useragent = random.choice(user_agents)
-options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')  # May improve stability in headless mode
 options.add_argument('--ignore-certificate-errors')
@@ -74,7 +58,7 @@ options.add_argument("--log-level=3")  # 0 = INFO, 1 = WARNING, 2 = ERROR, 3 = F
 
 # Suppress DevTools & other logs
 # Create the service with logging
-service = Service(executable_path=driverpath, log_path=log_path)
+
 
 web1 = "https://www.scrapethissite.com/pages/simple/"
 

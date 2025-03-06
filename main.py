@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 import csv
 
 
-driver = webdriver.Chrome(service=service, options=options)
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 stealth(driver,
         languages=["en-US", "en"],
@@ -20,6 +20,7 @@ stealth(driver,
         renderer="Intel Iris OpenGL Engine",
         fix_hairline=True,
         )
+
 
 
 def example1bs4():
@@ -180,6 +181,7 @@ def example2bs4():
     print("CSV file saved!")
 
 
+    
 
 def playerLookup():
     playertofind = input("Enter the name of a NBA player currently playing:")
@@ -193,7 +195,7 @@ def playerLookup():
     driver.refresh()
     driver.refresh()    
 
-   '''
+'''
    Hints to get you started:
 
    Not only can selenium dynamically scrape/crawl websites but it can also interact with the browser.
@@ -209,8 +211,7 @@ def playerLookup():
 
 
 
-
-playerLookup()
+driver.get("https://www.google.com")
 
 
 input("Press Enter to exit...")
