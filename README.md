@@ -28,20 +28,17 @@ Google Chrome -> https://www.google.com/intl/en_ca/chrome/
 
 ChromeDriver -> https://developer.chrome.com/docs/chromedriver/downloads
 
-Next, we need Selenium and beatifulsoup. To install selenium, simply open your terminal and enter:
+Next, we need to install the dependencies. To install everything, simply open your terminal and enter:
 
 ```
-pip install selenium
+ pip install -r requirements.txt
 ```
 
-```
-pip install beautifulsoup4
-```
 
 Once you have installed everything, we can now clone the repo to obtain the starter code. If you do not have Github Desktop or Git Make sure to download it.
 
 
-# Step 2: File Orgnization
+# Step 2: File Orgnization (without webdrivermanager)
 
 After downloading your ChromeDriver, make sure you put it in the same file the project is in. It should look something like this:
 
