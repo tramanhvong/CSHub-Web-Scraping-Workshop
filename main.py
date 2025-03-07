@@ -118,34 +118,36 @@ def example2selenium():
 
 
 def example2bs4():
-    url = ""
+    url = "https://www.nba.com/players"
     response = requests.get(url)
     # Parse the HTML content with BeautifulSoup
-    soup = BeautifulSoup(..., "html.parser")
+    soup = BeautifulSoup(response.text, "html.parser")
     
     # Find the table
-    my_table = soup.find("")
+    my_table = soup.find('table', class_='players-list') # tag, class_ = className
+
+    print(type(my_table))
 
     # Extract headers (if any)
-    headers = my_table.find_all("")
+    headers = my_table.find_all('th')
 
     header_row = []
 
     if(headers):
         for header in headers:
-            header_row.append(...)
+            header_row.append(header)
 
     # Extract table rows
-    rows = my_table.find_all("")
+    rows = my_table.find_all("tr")
     
     # Process the table data
     table_data = []
     for row in rows:
-        cells = row.find_all("")
+        cells = row.find_all("cell")
         cells_text = []
 
         for cell in cells:
-            cells_text.append(...)
+            cells_text.append(cell)
 
 
         table_data.append(cells_text)
@@ -153,7 +155,7 @@ def example2bs4():
     row_data = []
     
     for cell in cells:
-        row_data.append(...)
+        row_data.append(cell)
     
     if row_data:  # Ensure the row is not empty
         table_data.append(row_data)
@@ -168,7 +170,7 @@ def example2bs4():
         print(i)
     
     # Save to CSV
-    with open("", "", newline="", encoding="utf-8") as file:
+    with open("./nba_players.csv", "r", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         
         # Write headers if present
@@ -208,10 +210,9 @@ def playerLookup():
    
    
    '''
+example2bs4()
 
 driver.get("https://www.google.com")
 
 
 input("Press Enter to exit...")
-
-example1bs4()
