@@ -135,7 +135,7 @@ def example2bs4():
 
     if(headers):
         for header in headers:
-            header_row.append(header)
+            header_row.append(header.get_text(strip=True))
 
     # Extract table rows
     rows = my_table.find_all("tr")
@@ -143,11 +143,11 @@ def example2bs4():
     # Process the table data
     table_data = []
     for row in rows:
-        cells = row.find_all("cell")
+        cells = row.find_all("td")
         cells_text = []
 
         for cell in cells:
-            cells_text.append(cell)
+            cells_text.append(cell.get_text(strip=True))
 
 
         table_data.append(cells_text)
@@ -170,7 +170,7 @@ def example2bs4():
         print(i)
     
     # Save to CSV
-    with open("./nba_players.csv", "r", newline="", encoding="utf-8") as file:
+    with open("nba.csv", "w", newline="", encoding="utf-8") as file:
         writer = csv.writer(file)
         
         # Write headers if present
