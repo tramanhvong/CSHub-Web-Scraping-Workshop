@@ -25,8 +25,8 @@ stealth(driver,
 
 def example1bs4():
 
-    soup = BeautifulSoup(requests.get("").content, "html.parser")
-    countries = soup.findAll("", class_="")
+    soup = BeautifulSoup(requests.get("https://www.scrapethissite.com/pages/simple/").content, "html.parser")
+    countries = soup.findAll("div", class_="country")
     if(countries):
         print("Succesfully found countries")
 
@@ -34,12 +34,12 @@ def example1bs4():
   
 
 
-    sorted_countries_by_area = sorted(countries, key=lambda country: float(country.find(class_="").get_text(strip = True)))
+    sorted_countries_by_area = sorted(countries, key=lambda country: float(country.find(class_="country-area").get_text(strip = True)))
 
 
     for country in sorted_countries_by_area:
-        name = ...
-        area = ...
+        name = country.find(class_="country-name")
+        area = country.find(class_="country-area")
         print(f"{name}: {area}")
 
 
@@ -209,9 +209,9 @@ def playerLookup():
    
    '''
 
-
-
 driver.get("https://www.google.com")
 
 
 input("Press Enter to exit...")
+
+example1bs4()
